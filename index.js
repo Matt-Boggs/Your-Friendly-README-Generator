@@ -1,5 +1,6 @@
 var fs = require("fs");
 var inquirer = require("inquirer");
+var generateMarkdown = require("./util/generateMarkdown")
 
 // array of questions for user
 const questions = [
