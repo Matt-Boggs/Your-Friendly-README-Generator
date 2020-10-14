@@ -63,7 +63,7 @@ function makeLicense(){
         choices: ["MIT", "Apache", "GPL"],
         name: "license"
     }).then(function(response){
-        fs.appendFile("sample.md", "\n\n### License:\n This project is licensed under the " + response.license + " license.\n", function(err){
+        fs.appendFile("sample.md", "\n\n### License:\n This project is licensed under the " + response.license + " license.\n ![License](https://img.shields.io/badge/license-" + response.license + "-blue.svg)", function(err){
             if (err){
                 console.log(err)
             }
@@ -72,10 +72,30 @@ function makeLicense(){
     })
 }
 function makeContribute(){
-    console.log("almost there")
+    inquirer.prompt({
+        type: "input",
+        message: "How can others contribute to this project?",
+        name: "contribute"
+    }).then(function(response){
+        fs.appendFile("sample.md", "\n\n### Contributing:\n" + response.contribute + "\n", function(err){
+            if (err){
+                console.log(err)
+            }
+        })
+        makeTests();
+    })
 }
-
-
+function makeTests(){
+    fs.appendFile("sample.md", "\n\n### Tests:\nTesting at this stage is as simple as trying to break the application", function(err){
+        if (err){
+            console.log(err)
+        }
+    })
+    makeQuestions();
+}
+function makeQuestions(){
+    console.log("so close")
+}
 // function to initialize program
 function init() {
     makeTitle();
@@ -83,14 +103,3 @@ function init() {
 
 // function call to initialize program
 init();
-
-
-// * Title
-//   * Description
-//   * Table of Contents
-//   * Installation
-//   * Usage
-//   * License
-//   * Contributing
-//   * Tests
-//   * Questions
