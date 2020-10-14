@@ -33,12 +33,24 @@ function makeDescription(){
     });
 };
 function makeTOC(){ // 
-    fs.appendFile("sample.md","\n## Table of Contents \n Installation \n Usage \n License \n Contributing \n Tests \n Questions", function(err){
+    fs.appendFile("sample.md","\n## Table of Contents \n [Installation](#Installation) \n [Usage](#Usage) \n [License](#License) \n [Contributing](#Contributing) \n [Tests](#Tests) \n [Questions](#Questions)", function(err){
         if (err){
             return console.log(err);
         }
+        makeInstall();
     })
 };
+function makeInstall(){
+    fs.appendFile("sample.md", "\n\n### Installation:\n 1. Clone this repo\n 2. Run npm install\n 3. Run node index.js\n", function(err){
+        if (err){
+            console.log(err);
+        }
+        makeUsage();
+    })
+}
+function makeUsage(){
+    fs.appendFile("sample.md", "\n\n### Usage:\n This is a step by step guided process for making a readme, answer all the questions presented, and at the end you will have a readme generated for you with the information that was entered!")
+}
 
 
 // function to write README file
