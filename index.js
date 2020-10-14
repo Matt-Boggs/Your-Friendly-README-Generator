@@ -49,7 +49,15 @@ function makeInstall(){
     })
 }
 function makeUsage(){
-    fs.appendFile("sample.md", "\n\n### Usage:\n This is a step by step guided process for making a readme, answer all the questions presented, and at the end you will have a readme generated for you with the information that was entered!")
+    fs.appendFile("sample.md", "\n\n### Usage:\n This is a step by step guided process for making a readme, answer all the questions presented, and at the end you will have a readme generated for you with the information that was entered!\n", function(err){
+        if (err){
+            console.log(err)
+        }
+        makeLicense();
+    })
+}
+function makeLicense(){
+    
 }
 
 
