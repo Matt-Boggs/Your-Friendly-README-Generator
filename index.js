@@ -32,7 +32,7 @@ function makeDescription(){
         });
     });
 };
-function makeTOC(){ // 
+function makeTOC(){
     fs.appendFile("sample.md","\n## Table of Contents \n [Installation](#Installation) \n [Usage](#Usage) \n [License](#License) \n [Contributing](#Contributing) \n [Tests](#Tests) \n [Questions](#Questions)", function(err){
         if (err){
             return console.log(err);
@@ -57,16 +57,24 @@ function makeUsage(){
     })
 }
 function makeLicense(){
-    
+    inquirer.prompt({
+        type: "list",
+        message: "What kind of license would you like your project to have?",
+        choices: ["MIT", "Apache", "GPL"],
+        name: "license"
+    }).then(function(response){
+        fs.appendFile("sample.md", "\n\n### License:\n This project is licensed under the " + response.license + " license.\n", function(err){
+            if (err){
+                console.log(err)
+            }
+            makeContribute();
+        })
+    })
+}
+function makeContribute(){
+    console.log("almost there")
 }
 
-
-// function to write README file
-// fs.appendFile("sample.md", data, function(err){
-//     if (err){
-//         return console.log(err);
-//     }
-// });
 
 // function to initialize program
 function init() {
