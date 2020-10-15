@@ -117,10 +117,12 @@ function makeEmail(){
         });
     });
 };
+// For brevity
+makeTitle();
 // function to initialize program
-function init() {
-    makeTitle();
-};
+// function init() {
+//     makeTitle();
+// };
 
-// function call to initialize program
-init();
+// // function call to initialize program
+// init();
