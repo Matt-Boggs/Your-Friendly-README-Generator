@@ -12,6 +12,7 @@ function makeTitle(){
         message: "What is the title of your project?",
         name: "title"
     }).then(function(response){
+        console.log("WOW THAT IS A GREAT TITLE")
         // Then it writes the file, as opposed to appending, because this makes the whole application repeatable.(writeFile overwrites) // I need to look into why prependingFile doesn't work the way it should, but I think it has to be somewhere around here
         fs.writeFile("sample.md", "# " + response.title + "\n", function(err){   // You gotta remember the callback function, although the error message without it is fairly obvious
             if (err){return console.log(err);};
@@ -26,6 +27,7 @@ function makeDescription(){
         message: "write a brief description of your project here",
         name: "description"
     }).then(function(response){
+        console.log("YOU HAVE SUCH A WAY WITH WORDS")
         // Make these something something literal. Template literal?
         fs.appendFile("sample.md", "\n## Info: \n" + response.description + "\n", function(err){
             if (err){return console.log(err);};
@@ -60,6 +62,7 @@ function makeLicense(){
         choices: ["MIT", "Apache", "GPL"],
         name: "license"
     }).then(function(response){
+        console.log("LICENSE TO ILL, ISSUED")
         fs.appendFile("sample.md", "\n\n### License:\n This project is licensed under the " + response.license + " license.\n ![License](https://img.shields.io/badge/license-" + response.license + "-blue.svg)", function(err){
             if (err){return console.log(err)}
         });
@@ -72,6 +75,7 @@ function makeContribute(){
         message: "How can others contribute to this project?",
         name: "contribute"
     }).then(function(response){
+        console.log("WE'RE ALL IN THIS TOGETHER!")
         fs.appendFile("sample.md", "\n\n### Contributing:\n" + response.contribute + "\n", function(err){
             if (err){return console.log(err)}
         });
@@ -90,6 +94,7 @@ function makeGit(){
         message: "What is your github username?",
         name: "gituser"
     }).then(function(response){
+        console.log("WHAT A NAME!")
         fs.appendFile("sample.md", "\n\n### Questions:\nTo contact the author of this repository, reach them via: \nGithub: https://github.com/" + response.gituser, function(err){
             if (err){return console.log(err)}
         });
@@ -102,6 +107,7 @@ function makeEmail(){
         message: "What is your email address?",
         name: "email"
     }).then(function(response){
+        console.log("THANK YOU!")
         fs.appendFile("sample.md", "\nEmail: " + response.email, function(err){
             if (err){return console.log(err)}
         });
