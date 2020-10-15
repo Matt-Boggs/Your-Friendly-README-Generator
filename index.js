@@ -91,10 +91,35 @@ function makeTests(){
             console.log(err)
         }
     })
-    makeQuestions();
+    makeGit();
 }
-function makeQuestions(){
-    console.log("so close")
+function makeGit(){
+    inquirer.prompt({
+        type: "input",
+        message: "What is your github username?",
+        name: "gituser"
+        }).then(function(response){
+            fs.appendFile("sample.md", "\n\n### Questions:\nTo contact the author of this repository, reach them via: \nGithub: https://github.com/" + response.gituser, function(err){
+                if (err){
+                    console.log(err)
+                }
+            })
+            makeEmail()
+        })
+       
+}
+function makeEmail(){
+    inquirer.prompt({
+        type: "input",
+        message: "What is your email address?",
+        name: "email"
+        }).then(function(response){
+            fs.appendFile("sample.md", "\nEmail: " + response.email, function(err){
+                if (err){
+                    console.log(err)
+                }
+            })
+        })
 }
 // function to initialize program
 function init() {
