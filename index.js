@@ -1,6 +1,5 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./util/generateMarkdown")
 
 function makeTitle(){
     inquirer.prompt({
@@ -13,10 +12,8 @@ function makeTitle(){
                 return console.log(err);
             };
             makeDescription();
-
         });
     });
-
 };
 function makeDescription(){
     inquirer.prompt({
@@ -38,7 +35,7 @@ function makeTOC(){
             return console.log(err);
         }
         makeInstall();
-    })
+    });
 };
 function makeInstall(){
     fs.appendFile("sample.md", "\n\n### Installation:\n 1. Clone this repo\n 2. Run npm install\n 3. Run node index.js\n", function(err){
@@ -46,16 +43,16 @@ function makeInstall(){
             console.log(err);
         }
         makeUsage();
-    })
-}
+    });
+};
 function makeUsage(){
     fs.appendFile("sample.md", "\n\n### Usage:\n This is a step by step guided process for making a readme, answer all the questions presented, and at the end you will have a readme generated for you with the information that was entered!\n", function(err){
         if (err){
             console.log(err)
         }
         makeLicense();
-    })
-}
+    });
+};
 function makeLicense(){
     inquirer.prompt({
         type: "list",
@@ -67,10 +64,10 @@ function makeLicense(){
             if (err){
                 console.log(err)
             }
-            makeContribute();
-        })
-    })
-}
+        });
+        makeContribute();
+    });
+};
 function makeContribute(){
     inquirer.prompt({
         type: "input",
@@ -81,50 +78,49 @@ function makeContribute(){
             if (err){
                 console.log(err)
             }
-        })
+        });
         makeTests();
-    })
-}
+    });
+};
 function makeTests(){
     fs.appendFile("sample.md", "\n\n### Tests:\nTesting at this stage is as simple as trying to break the application", function(err){
         if (err){
             console.log(err)
         }
-    })
+    });
     makeGit();
-}
+};
 function makeGit(){
     inquirer.prompt({
         type: "input",
         message: "What is your github username?",
         name: "gituser"
-        }).then(function(response){
-            fs.appendFile("sample.md", "\n\n### Questions:\nTo contact the author of this repository, reach them via: \nGithub: https://github.com/" + response.gituser, function(err){
-                if (err){
-                    console.log(err)
-                }
-            })
-            makeEmail()
-        })
-       
-}
+    }).then(function(response){
+        fs.appendFile("sample.md", "\n\n### Questions:\nTo contact the author of this repository, reach them via: \nGithub: https://github.com/" + response.gituser, function(err){
+            if (err){
+                console.log(err)
+            }
+        });
+        makeEmail()
+    });
+};
 function makeEmail(){
     inquirer.prompt({
         type: "input",
         message: "What is your email address?",
         name: "email"
-        }).then(function(response){
-            fs.appendFile("sample.md", "\nEmail: " + response.email, function(err){
-                if (err){
-                    console.log(err)
-                }
-            })
-        })
-}
+    }).then(function(response){
+        fs.appendFile("sample.md", "\nEmail: " + response.email, function(err){
+            if (err){
+                console.log(err)
+            }
+        });
+    });
+};
 // function to initialize program
 function init() {
     makeTitle();
-}
+};
 
 // function call to initialize program
 init();
