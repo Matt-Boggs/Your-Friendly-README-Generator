@@ -30,7 +30,7 @@ function makeDescription(){
     });
 };
 function makeTOC(){
-    fs.appendFile("sample.md","\n## Table of Contents \n [Installation](#Installation) \n [Usage](#Usage) \n [License](#License) \n [Contributing](#Contributing) \n [Tests](#Tests) \n [Questions](#Questions)", function(err){
+    fs.appendFile("sample.md","\n## Table of Contents \n 1.[Installation](#Installation) \n 2.[Usage](#Usage) \n 3.[License](#License) \n 4.[Contributing](#Contributing) \n 5.[Tests](#Tests) \n 6.[Questions](#Questions)", function(err){
         if (err){
             return console.log(err);
         }

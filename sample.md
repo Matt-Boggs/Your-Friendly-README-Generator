@@ -1,7 +1,7 @@
-# Your-Friendly-README-Generator
+# Sample Readme
 
 ## Info: 
-This assignment is all about node, inquire, and fs. Using this app, You can build your Readmes easier than ever
+Sample Description
 
 ## Table of Contents 
  1.[Installation](#Installation) 
@@ -25,19 +25,14 @@ This assignment is all about node, inquire, and fs. Using this app, You can buil
  This project is licensed under the MIT license.
  ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-### Contributing:
-Contributions to this project are appreciated, at current time the code Could use some refactoring, It's very WET as is
-
-
 ### Tests:
 Testing at this stage is as simple as trying to break the application
 
+### Contributing:
+Sample of contributing guidelines
+
+
 ### Questions:
 To contact the author of this repository, reach them via: 
-Github: https://github.com/matt-boggs
-Email: matt.david.boggs@gmail.com
-
-
-
-
-This readme was generated using this application.
+Github: https://github.com/sample User
+Email: sample Email
