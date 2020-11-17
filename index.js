@@ -37,7 +37,7 @@ function makeDescription(){
 };
 function makeTOC(){
     // Below is just markdown formatting, its not in a column like I want
-    fs.appendFile("sample.md","\n## Table of Contents \n 1.[Installation](#Installation) \n 2.[Usage](#Usage) \n 3.[License](#License) \n 4.[Contributing](#Contributing) \n 5.[Tests](#Tests) \n 6.[Questions](#Questions)", function(err){
+    fs.appendFile("sample.md","\n## Table of Contents \n [Installation](#Installation) || [Usage](#Usage) || [License](#License) || [Contributing](#Contributing) || [Tests](#Tests) || [Questions](#Questions)", function(err){
         if (err){return console.log(err);}
         makeInstall(); // Next function, and last comment about it
     });
@@ -50,7 +50,7 @@ function makeInstall(){
     });
 };
 function makeUsage(){
-    fs.appendFile("sample.md", "\n\n### Usage:\n This is a step by step guided process for making a readme, answer all the questions presented, and at the end you will have a readme generated for you with the information that was entered!\n", function(err){
+    fs.appendFile("sample.md", "\n\n### Usage:\nUse this way\n\n#### media1:\n![media1]()\n\n#### media2:\n![media2]()", function(err){
         if (err){return console.log(err)}
         makeLicense();
     });
